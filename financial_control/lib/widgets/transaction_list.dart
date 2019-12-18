@@ -4,7 +4,6 @@ import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 
 class TransactionList extends StatelessWidget {
-
   final List<Transaction> transactions;
 
   TransactionList(this.transactions);
@@ -13,12 +12,11 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      child: SingleChildScrollView(
-              child: Column(
-                children: transactions.map((tx) {
-                  return TransactionItem(tx);
-                }).toList(),
-              ),
+      child: ListView.builder(
+        itemBuilder: (ctx, index) {
+          return TransactionItem(transactions[index]);
+        },
+        itemCount: transactions.length,
       ),
     );
   }
