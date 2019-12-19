@@ -16,7 +16,7 @@ class TransactionItem extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.purple,
+                color: Theme.of(context).primaryColor,
                 width: 2,
               ),
             ),
@@ -26,7 +26,7 @@ class TransactionItem extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
-                color: Colors.purple,
+                color: Theme.of(context).primaryColorDark,
               ),
             ),
           ),
@@ -35,11 +35,11 @@ class TransactionItem extends StatelessWidget {
             children: <Widget>[
               Text(
                 transaction.title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: Theme.of(context).textTheme.title
               ),
               Text(
                 DateFormat.yMMMd().format(transaction.dateTime),
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Theme.of(context).primaryColorLight),
               ),
             ],
           )
