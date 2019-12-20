@@ -33,7 +33,8 @@ class TransactionList extends StatelessWidget {
             )
           : ListView.builder(
               itemBuilder: (ctx, index) {
-                return TransactionItem(transactions[index]);
+                return 
+                  TransactionItem(transactions[index]);
               },
               itemCount: transactions.length,
             ),
