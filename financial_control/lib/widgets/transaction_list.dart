@@ -4,9 +4,10 @@ import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 
 class TransactionList extends StatelessWidget {
+  final Function deleteTransaction;
   final List<Transaction> transactions;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.deleteTransaction);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class TransactionList extends StatelessWidget {
           ? Column(
               children: <Widget>[
                 Text(
-                  'No trnsactions added yet!',
+                  'No transactions added yet!',
                   style: Theme.of(context).textTheme.title,
                 ),
                 SizedBox(
@@ -34,7 +35,7 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return 
-                  TransactionItem(transactions[index]);
+                  TransactionItem(transactions[index], this.deleteTransaction);
               },
               itemCount: transactions.length,
             ),
