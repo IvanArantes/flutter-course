@@ -32,11 +32,18 @@ class TransactionItem extends StatelessWidget {
         subtitle: Text(
           DateFormat.yMMMd().format(transaction.dateTime),
         ),
-        trailing: IconButton(
-          icon: Icon(Icons.delete),
-          color: Theme.of(context).errorColor,
-          onPressed: () => deleteTransaction(transaction.id),
-        ),
+        trailing: MediaQuery.of(context).size.width > 400
+            ? FlatButton.icon(
+                textColor: Theme.of(context).errorColor,
+                label: Text('Delete'),
+                icon: Icon(Icons.delete),
+                onPressed: () => deleteTransaction(transaction.id),
+              )
+            : IconButton(
+                icon: Icon(Icons.delete),
+                color: Theme.of(context).errorColor,
+                onPressed: () => deleteTransaction(transaction.id),
+              ),
       ),
     );
   }
