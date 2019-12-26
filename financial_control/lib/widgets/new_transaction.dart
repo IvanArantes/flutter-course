@@ -1,3 +1,5 @@
+import 'package:financial_control/widgets/adaptiveButton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -51,7 +53,8 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView( // added this so user can scroll while keyboard is open
+    return SingleChildScrollView(
+      // added this so user can scroll while keyboard is open
       child: Card(
         elevation: 5,
         child: Container(
@@ -59,7 +62,8 @@ class _NewTransactionState extends State<NewTransaction> {
             top: 10,
             left: 10,
             right: 10,
-            bottom: MediaQuery.of(context).viewInsets.bottom + 10, //move modal up when keyboard appears
+            bottom: MediaQuery.of(context).viewInsets.bottom +
+                10, //move modal up when keyboard appears
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -87,19 +91,12 @@ class _NewTransactionState extends State<NewTransaction> {
                             : 'Picked date: ${DateFormat.yMd().format(_selectedDate)}',
                       ),
                     ),
-                    FlatButton(
-                      textColor: Theme.of(context).primaryColor,
-                      child: Text(
-                        'Choose Date',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: _showDatePicker,
-                    ),
+                   AdaptiveFlatButton('Choose date', _showDatePicker),
                   ],
                 ),
               ),
               RaisedButton(
-                child: Text('Add Transaction'),
+                child: const Text('Add Transaction'),
                 textColor: Theme.of(context).textTheme.button.color,
                 color: Theme.of(context).primaryColor,
                 onPressed: _submitData,

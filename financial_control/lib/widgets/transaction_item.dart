@@ -1,12 +1,16 @@
-import '../models/transaction.dart';
 import 'package:flutter/material.dart';
+import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
 class TransactionItem extends StatelessWidget {
   final Transaction transaction;
   final Function deleteTransaction;
 
-  TransactionItem(this.transaction, this.deleteTransaction);
+  const TransactionItem({
+    Key key,
+    @required this.transaction,
+    @required this.deleteTransaction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
