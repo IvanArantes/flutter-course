@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Domino",
+            "type": "dart",
+            "request": "launch",
+            "program": "domino_counter/lib/main.dart"
+        },
+        {
+            "name": "Recipes App",
+            "type": "dart",
+            "request": "launch",
+            "program": "recipes_app/lib/main.dart"
+        },
+        {
             "name": "Quiz App",
             "program": "quiz_app/lib/main.dart",
             "request": "launch",
