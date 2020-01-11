@@ -7,10 +7,22 @@ enum Complexity {
   Hard,
 }
 
+extension complexityToString on Complexity {
+  String toStringName() {
+    return this.toString().split('.').last;
+  }
+}
+
 enum Affordability {
   Affordable,
   Pricey,
   Luxurious,
+}
+
+extension affordabilityToString on Affordability {
+  String toStringName() {
+    return this.toString().split('.').last;
+  }
 }
 
 class Meal {

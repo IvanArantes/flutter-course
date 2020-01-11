@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dummy-data.dart';
+
+import '../widgets/meal_item.dart';
+import '../dummy-data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
 //Commented because when we use named Routes we can't pass arguments directly
@@ -15,7 +17,7 @@ class CategoryMealsScreen extends StatelessWidget {
     final categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
 
-    final filteredCategories = DUMMY_MEALS.where((meal) {
+    final filteredMeals = DUMMY_MEALS.where((meal) {
       return meal.categories.contains(categoryId);
     }).toList();
 
@@ -25,9 +27,9 @@ class CategoryMealsScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
-          return null; //TODO:
+          return MealItem(meal: filteredMeals[index]); 
         },
-        itemCount: filteredCategories.length,
+        itemCount: filteredMeals.length,
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:recipes_app/screens/categories_screen.dart';
 import 'app_routes.dart';
 
 void main() => runApp(MyApp());
@@ -30,6 +31,13 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: AppRoutes.getRoutes,
+      onGenerateRoute: (settings) { //when it goes to a not registered route
+        print(settings.arguments);
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+      },
+      onUnknownRoute: (settings) { //when you do not define any route, it will gives you an error. before throwing the error, it goes to this route
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+        },
     );
   }
 }
