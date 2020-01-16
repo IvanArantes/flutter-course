@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/screens/meal_detail_screen.dart';
+import 'package:recipes_app/screens/tabs_screen.dart';
 
-import 'screens/categories_screen.dart';
 import 'screens/category_meals_screen.dart';
 
 //Created this class so I can make the main.dart file cleaner. This is imported on the routes definition.
@@ -15,7 +15,7 @@ class AppRoutes {
     var routes = <String, WidgetBuilder>{
       CATEGORY_MEALS: (context) => CategoryMealsScreen(),
       MEAL_DETAILS: (context) => MealDetailScreen(),
-      HOME: (context) => CategoriesScreen()
+      HOME: (context) => TabsScreen(),
     };
     return routes;
   }
