@@ -12,7 +12,8 @@ class MealItem extends StatelessWidget {
   }) : super(key: key);
 
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(AppRoutes.MEAL_DETAILS, arguments: this.meal);
+    Navigator.of(context)
+        .pushNamed(AppRoutes.MEAL_DETAILS, arguments: this.meal);
   }
 
   @override
@@ -82,7 +83,7 @@ class MealItem extends StatelessWidget {
                       Text('${meal.complexity.toStringName()}'),
                     ],
                   ),
-                   Row(
+                  Row(
                     children: <Widget>[
                       Icon(Icons.attach_money),
                       SizedBox(
