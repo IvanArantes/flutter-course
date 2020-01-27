@@ -5,8 +5,19 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Test Favorites'),
+    return Container(
+       decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.purple.withOpacity(0.8),
+          Colors.black,
+        ],
+      )),
+      child: Center(
+        child: Text('Test Favorites', style: TextStyle(color: Colors.white),),
+      ),
     );
   }
 }

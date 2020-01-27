@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Recipes',
       theme: ThemeData(
         primarySwatch: Colors.purple,
-        accentColor: Colors.amber,
+        accentColor: Colors.black,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Relaway',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         print(settings.arguments);
         return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
       },
-      onUnknownRoute: (settings) { //when you do not define any route, it will gives you an error. before throwing the error, it goes to this route
+      onUnknownRoute: (settings) { // executes for any unregistered named route, onUnknownRoute  executes if onGenerateRoute isn't defined or doesn't return a valid navigation action.
         return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
         },
     );

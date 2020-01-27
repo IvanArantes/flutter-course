@@ -25,11 +25,22 @@ class CategoryMealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('$categoryTitle Recipes'),
       ),
-      body: ListView.builder(
-        itemBuilder: (ctx, index) {
-          return MealItem(meal: filteredMeals[index]); 
-        },
-        itemCount: filteredMeals.length,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.purple.withOpacity(0.8),
+          Colors.black,
+        ],
+      )),
+        child: ListView.builder(
+          itemBuilder: (ctx, index) {
+            return MealItem(meal: filteredMeals[index]); 
+          },
+          itemCount: filteredMeals.length,
+        ),
       ),
     );
   }

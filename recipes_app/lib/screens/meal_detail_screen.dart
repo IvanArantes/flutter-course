@@ -35,45 +35,56 @@ class MealDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(meal.title),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 300,
-              width: double.infinity,
-              child: Image.network(meal.imageUrl, fit: BoxFit.cover),
-            ),
-            buildSectionTitle(context, 'Ingredients'),
-            buildContainer(
-              ListView.builder(
-                itemBuilder: (context, index) => Card(
-                  color: Theme.of(context).accentColor,
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                      child: Text(meal.ingredients[index])),
-                ),
-                itemCount: meal.ingredients.length,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.purple.withOpacity(0.8),
+          Colors.black,
+        ],
+      )),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 300,
+                width: double.infinity,
+                child: Image.network(meal.imageUrl, fit: BoxFit.cover),
               ),
-            ),
-            buildSectionTitle(context, 'Steps'),
-            buildContainer(
-              ListView.builder(
-                itemBuilder: (ctx, index) => Column(
-                  children: [
-                    ListTile(
-                      leading: CircleAvatar(
-                        child: Text("# ${(index + 1)}"),
+              buildSectionTitle(context, 'Ingredients'),
+              buildContainer(
+                ListView.builder(
+                  itemBuilder: (context, index) => Card(
+                    color: Theme.of(context).accentColor.withOpacity(0.1),
+                    child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        child: Text(meal.ingredients[index])),
+                  ),
+                  itemCount: meal.ingredients.length,
+                ),
+              ),
+              buildSectionTitle(context, 'Steps'),
+              buildContainer(
+                ListView.builder(
+                  itemBuilder: (ctx, index) => Column(
+                    children: [
+                      ListTile(
+                        leading: CircleAvatar(
+                          child: Text("# ${(index + 1)}"),
+                        ),
+                        title: Text(meal.steps[index]),
                       ),
-                      title: Text(meal.steps[index]),
-                    ),
-                    Divider()
-                  ],
+                      Divider()
+                    ],
+                  ),
+                  itemCount: meal.ingredients.length,
                 ),
-                itemCount: meal.ingredients.length,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
